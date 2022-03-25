@@ -28,5 +28,14 @@ public class Locomotive extends Wagon{
         tankLoad = 0;
     }
 
-
+    @Override
+    public String toString() {
+        return "Локомотив" +
+                "\n\tМаксимальная скорость = " + maximalSpeed +
+                "\n\tПробег = " + mileage +
+                "\n\tВместимость бака = " + tankCapacity +
+                "\n\tБак заполнен = " + tankLoad +
+                "\n\tмасса = " + mass +
+                "\n\tВыпущен в" + yearOfIssue;
+    }
 }

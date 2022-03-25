@@ -6,8 +6,9 @@ public class Carriage extends Wagon {
     private int numberOfSeats;
     private int occupiedSeats;
 
-    public Carriage(int mass, int yearOfIssue, String type, int occupiedSeats){
-        super(mass, yearOfIssue);
+    public Carriage(int yearOfIssue, String type, int occupiedSeats){
+
+        super(23, yearOfIssue);
         this.type = type;
         switch (type){
             case "Сидячий":
@@ -22,6 +23,11 @@ public class Carriage extends Wagon {
             default:
                 numberOfSeats = 18;
                 break;
+        }
+        if(occupiedSeats < numberOfSeats){
+            this.occupiedSeats = occupiedSeats;
+        }else{
+            this.occupiedSeats = 0;
         }
     }
 
@@ -44,5 +50,14 @@ public class Carriage extends Wagon {
         return "Тип вагона: " + type + "\nКоличество мест: " + numberOfSeats + "\nЗанято: " + occupiedSeats;
     }
 
+    //по статистике средний человек при весе в 80-90 кг
+    //вощзьмет с собой в поездку еще +-30 кг. отсюда цифра 110 :)
+    public int countMassNetto(){
+        return occupiedSeats * 110;
+    }
+
+    public int countMassBrutto(){
+        return countMassNetto() + this.mass;
+    }
 
 }

@@ -5,8 +5,9 @@ public class Cargo extends Wagon{
     private int maximumLoad;
     private int loaded;
 
-    public Cargo(int mass, int yearOfIssue, String type){
-        super(mass, yearOfIssue);
+    public Cargo(int yearOfIssue, String type, int loaded){
+
+        super(29, yearOfIssue);
         this.type = type;
 
         switch (type){
@@ -15,6 +16,11 @@ public class Cargo extends Wagon{
                 break;
             default:
                 maximumLoad = 68;
+        }
+        if(loaded < maximumLoad){
+            this.loaded = loaded;
+        }else{
+            this.loaded = 0;
         }
     }
 

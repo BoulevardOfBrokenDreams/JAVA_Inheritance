@@ -3,8 +3,9 @@ package by.gsu.training.final2;
 public class Carriage extends Wagon {
 
     private String type;
-    private int numberOfSeats;
+    private  int numberOfSeats;
     private int occupiedSeats;
+    private static String[] _types = {"Сидячий", "Плацкарт", "Купейный", "СВ"};
 
     public Carriage(int yearOfIssue, String type, int occupiedSeats){
 
@@ -51,13 +52,28 @@ public class Carriage extends Wagon {
     }
 
     //по статистике средний человек при весе в 80-90 кг
-    //вощзьмет с собой в поездку еще +-30 кг. отсюда цифра 110 :)
+    //возьмет с собой в поездку еще +-30 кг. отсюда цифра 110 :)
+    @Override
     public int countMassNetto(){
         return occupiedSeats * 110;
     }
 
+    @Override
     public int countMassBrutto(){
         return countMassNetto() + this.mass;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public int getNumberOfType(){
+        for(int i = 0; i < _types.length; i++){
+            if(this.type.equals(_types[i])){
+                return i;
+            }
+        }
+        return -1;
     }
 
 }

@@ -2,9 +2,9 @@ package by.gsu.training.final2;
 
 public class Locomotive extends Wagon{
 
-    private int maximalSpeed;
-    private int mileage;
-    private int tankCapacity;
+    private final int maximalSpeed;
+    private final int mileage;
+    private final int tankCapacity;
     private int tankLoad;
 
     public Locomotive(int mass, int yearOfIssue, int maximalSpeed, int mileage, int tankCapacity){
@@ -37,5 +37,14 @@ public class Locomotive extends Wagon{
                 "\n\tБак заполнен = " + tankLoad +
                 "\n\tмасса = " + mass +
                 "\n\tВыпущен в" + yearOfIssue;
+    }
+    @Override
+    public int countMassNetto(){
+        return tankLoad;
+    }
+
+    @Override
+    public int countMassBrutto(){
+        return countMassNetto() + this.mass;
     }
 }

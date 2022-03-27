@@ -1,7 +1,5 @@
 package by.gsu.training.final2;
 
-import java.util.Arrays;
-
 public class Train {
     String type;
     Locomotive locomotive;
@@ -53,10 +51,24 @@ public class Train {
         }
     }
 
-    public int summPassengers(){
+    public int sumPassengers(){
         int result = 0;
-        for(int i = 0; i < composition.length; i++){
-            result += composition[i].ge
+        for(int i = 0; i < composition.length && composition[i] != null; i++){
+            result += composition[i].countMassNetto();
+        }
+        return result;
+    }
+
+    public void sort(){
+        for(int i = 0; i < composition.length && composition[i] != null; i++){
+            for(int j = 0; j < composition.length && composition[j] != null; j++){
+                if(composition[i].getNumberOfType() > composition[i].getNumberOfType()){
+                    Wagon bufer = composition[i];
+                    composition[i] = composition[j];
+                    composition[j] = bufer;
+                }
+            }
         }
     }
+
 }

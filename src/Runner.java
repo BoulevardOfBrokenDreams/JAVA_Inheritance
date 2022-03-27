@@ -17,14 +17,18 @@ public class Runner {
         arr[8] = new Carriage(2016, "СВ", 11);
         arr[9] = new Carriage(2020, "Плацкарт", 50);
 
-        Train passengers = new Train("Пассажирский", locomotive, arr);
+        Train trainPas = new Train("Пассажирский", locomotive, arr);
 
-        System.out.println(passengers.getWagonN(3).toString());
+        System.out.println(trainPas.getWagonN(3).toString());
 
-        passengers.changeWagonN(3, 2000, "Купейный", 13);
+        trainPas.changeWagonN(3, 2000, "Купейный", 13);
 
-        System.out.println(passengers.getWagonN(3).toString());
+        System.out.println(trainPas.getWagonN(3).toString());
 
-        passengers.print();
+        trainPas.print();
+
+        System.out.println("Масса всех пассажиров поезда равна " + trainPas.sumPassengers() + " кг");
+
+
     }
 }

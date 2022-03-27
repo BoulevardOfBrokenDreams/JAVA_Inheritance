@@ -4,6 +4,7 @@ public abstract class Wagon {
 
     protected int mass;
     protected int yearOfIssue;
+    protected String type;
 
     public Wagon(int mass, int yearOfIssue){
         this.mass = mass;
@@ -12,4 +13,7 @@ public abstract class Wagon {
 
     public abstract boolean loading(int count);
     public abstract void unload();
+    public abstract int countMassNetto();
+    public abstract int countMassBrutto();
+    public abstract int getNumberOfType();
 }
